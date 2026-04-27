@@ -56,7 +56,7 @@ func _kick() -> void:
 	else:
 		_kickLeft.process_mode = Node.PROCESS_MODE_INHERIT
 		
-		_kickTimer = _kickMaxTime
+		_kickTimer = 0.5
 		 
 func _disableKick() -> void:
 	_kickRight.process_mode = Node.PROCESS_MODE_DISABLED
