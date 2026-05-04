@@ -33,5 +33,6 @@ scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_85g3d")
 
 [node name="ExplosionVFX" parent="." instance=ExtResource("3_t4g8a")]
+position = Vector2(117, 43)
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

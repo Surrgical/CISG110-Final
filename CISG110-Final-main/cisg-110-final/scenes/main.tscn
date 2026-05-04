@@ -3216,7 +3216,7 @@ radius = 11.0
 
 [node name="player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("_kickRight", "_kickLeft")]
 z_index = 100
-collision_mask = 6
+collision_mask = 22
 script = ExtResource("1_tefeu")
 SPEED = 301
 _kickRight = NodePath("KickRight")
@@ -3342,7 +3342,11 @@ position = Vector2(130, -99)
 position = Vector2(50, -3)
 
 [node name="Rat" parent="." instance=ExtResource("8_tipki")]
-position = Vector2(80, 45)
+position = Vector2(87, 47)
+
+[node name="Rat2" parent="." instance=ExtResource("8_tipki")]
+position = Vector2(-366, 45)
+_speed = -50.0
 
 [connection signal="body_shape_entered" from="player/KickRight" to="player" method="_on_kick_right_body_shape_entered"]
 [connection signal="body_shape_entered" from="player/KickLeft" to="player" method="_on_kick_left_body_shape_entered"]
