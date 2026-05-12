@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cq5v2wb1tpfgv"]
+
+[ext_resource type="Script" uid="uid://t63xlgvgru5x" path="res://scripts/prop.gd" id="1_5xyno"]
+[ext_resource type="Texture2D" uid="uid://bj4vvn80427sh" path="res://sprites/item_tileset.png" id="1_omtcd"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jh885"]
+bounce = 0.68
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_85g3d"]
+radius = 18.027756
+
+[node name="Meat" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 15
+physics_material_override = SubResource("PhysicsMaterial_jh885")
+script = ExtResource("1_5xyno")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 10
+shape = SubResource("CircleShape2D_85g3d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, 1)
+scale = Vector2(2.7, 2.0555556)
+texture = ExtResource("1_omtcd")
+region_enabled = true
+region_rect = Rect2(72.703186, 13.771982, 10.864197, 9.876543)

@@ -2,6 +2,7 @@ extends RigidBody2D
 
 @export var _speed: float = 50.0
 @export var _explosion_VFX: CPUParticles2D
+@export var label: Label
 
 func _physics_process(delta: float) -> void:
 	linear_velocity.x = -_speed
@@ -16,7 +17,13 @@ func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, lo
 	print("player hit")
 	if body is Player:
 		_explosion_VFX.emitting = true
-		_explosion_VFX.reparent(get_parent())
+		_explosion_VFX.reparent(get_tree().current_scene)
+		
+		await get_tree().create_timer(0.5).timeout
+		_explosion_VFX.queue_free()
+		
+		if label:
+			label.lose_points()
 		
 		
 		queue_free()
