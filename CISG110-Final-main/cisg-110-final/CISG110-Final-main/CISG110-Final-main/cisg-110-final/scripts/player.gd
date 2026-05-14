@@ -17,6 +17,7 @@ class_name Player
 
 var _kickTimer: float = 0.0
 
+
 @export var _rightKickDir: Vector2 = Vector2.RIGHT
 @export var _leftKickDir: Vector2 = Vector2.LEFT
 
@@ -48,28 +49,30 @@ func _physics_process(delta: float) -> void:
 		_facingRight = false
 		_anims.flip_h = true
 		
-		if _kickTimer > 0:
+	if _kickTimer > 0:
 			_kickTimer -= delta
+			return
 			
-		if _kickTimer <= 0:
-				_disableKick()
-		
+	if _kickTimer <= 0:
+			_disableKick()
+			
 	
 		
 	if Input.is_action_just_pressed("ui_accept"):
 		_kick()
 		_anims.play("kick")
-		return
-		
-	if _anims.animation != "kick": 
-	
+
+	if _kickTimer <= 0:
 		if velocity.x == 0 && velocity.y == 0:
 			_anims.play("idle")
 		else:
 			_anims.play("walking")
+	else:
+		_anims.play("kick")
+			
 	
 	
-		
+	
 		
 	move_and_slide()
 	
@@ -79,7 +82,7 @@ func _kick() -> void:
 	else:
 		_kickLeft.process_mode = Node.PROCESS_MODE_INHERIT
 		
-		_kickTimer = _kickMaxTime
+	_kickTimer = _kickMaxTime
 		 
 func _disableKick() -> void:
 	_kickRight.process_mode = Node.PROCESS_MODE_DISABLED

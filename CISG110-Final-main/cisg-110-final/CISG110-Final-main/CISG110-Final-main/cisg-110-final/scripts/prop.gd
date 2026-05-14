@@ -24,3 +24,11 @@ func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, lo
 	
 	
 		queue_free()
+
+
+
+	pass # Replace with function body.
+
+
+
+	 # Replace with function body.
